@@ -17,8 +17,8 @@ make
 sudo echo 80 > /tmp/compilation_freeCrystal_in_progress
 sudo make install
 sudo echo 90 > /tmp/compilation_freeCrystal_in_progress
-sudo rm /tmp/compilation_freeCrystal_in_progress
 sudo echo 100 > /tmp/compilation_freeCrystal_in_progress
 echo "*****************************************************************************************************"
 echo "*                                      Installation Terminé                                         *"
 echo "*****************************************************************************************************"
+sudo rm /tmp/compilation_freeCrystal_in_progress
