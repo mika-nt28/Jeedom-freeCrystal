@@ -5,7 +5,7 @@
 	"licence" : "AGPL",
 	"author" : "Halbout Michael",
 	"require" : "3.0",
-	"category" : "monitoring",
+	"category" : "multimedia",
 	"hasOwnDeamon" : true,
 	"hasDependency" : true
 }
