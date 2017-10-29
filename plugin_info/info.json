@@ -1,7 +1,7 @@
 {
 	"id" : "freeCrystal",
 	"name" : "Freebox Crystal",
-	"description" : "Récupere les information de votre freebox Crystal",
+	"description" : "Récupère les informations de votre Freebox Crystal",
 	"licence" : "AGPL",
 	"author" : "Halbout Michael",
 	"require" : "3.0",
