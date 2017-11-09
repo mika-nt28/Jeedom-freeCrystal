@@ -6,10 +6,11 @@ class freeCrystal extends eqLogic {
                 $return = array();
                 $return['log'] = 'freeCrystal_update';
                 $return['progress_file'] = '/tmp/compilation_freeCrystal_in_progress';
-                if (exec('dpkg -s arp-scan | grep -c "Status: install"') ==1)
-                        $return['state'] = 'ok';
-                else
-                        $return['state'] = 'nok';
+               	$return['state'] = 'nok';
+		$cmd = 'sudo /usr/bin/arp-scan --interface=eth0 --localnet';
+              	exec($cmd,$result);
+                if($result!='')
+               		$return['state'] = 'ok';
                 return $return;
         }
         public static function dependancy_install() {
@@ -105,7 +106,8 @@ class freeCrystal extends eqLogic {
 				switch($ligne){
 					case "Informations générales :":
 						$InformationsGenerales=freeCrystal::AddDevice("Informations générales","InformationsGenerales");
-						freeCrystal::AddCommmande($InformationsGenerales,'Redemarrage','Redemarrage', "action",'other');
+						freeCrystal::AddCommmande($InformationsGenerales,'Redemarrage Server','Redemarrage', "action",'other');
+						freeCrystal::AddCommmande($InformationsGenerales,'Redemarrage Player','RedemarragePlayer', "action",'other');
 						log::add('freeCrystal', 'debug', $ligne);
 						$loop++;
 						$loop++;
@@ -531,7 +533,7 @@ class freeCrystal extends eqLogic {
 								$Commande=freeCrystal::AddCommmande($DHCP,$Mac,str_replace(':','',$Mac), "info",'binary');
 								$Commande->setConfiguration('Mac',$Mac);
 								$Commande->setConfiguration('Ip',$Ip);
-								$value = $Commande->getEqLogic()->MacIsConnected($Mac,$ScanDHCP);
+								$value = self::MacIsConnected($Mac,$ScanDHCP);
 								log::add('freeCrystal','debug','Etat de '.$Commande->getName().' => '.$value);
 								$Commande->setCollectDate('');
 								$Commande->event($value);
@@ -643,7 +645,7 @@ class freeCrystal extends eqLogic {
                         sleep(config::byKey('DemonSleep','freeCrystal'));
                 }
         }
-        private function MacIsConnected($Mac,$ScanDHCP) {
+        private static function MacIsConnected($Mac,$ScanDHCP) {
                 $result =false;
                 $cmd = 'sudo /usr/bin/arp-scan -l -g --retry=3 -T '.$Mac.' -t 500 | grep -i '.$Mac.' | wc -l 2>&1';
                 //$cmd .= ' >> ' . log::getPathToLog('freeCrystal');
@@ -663,13 +665,15 @@ class freeCrystalCmd extends cmd {
     public function execute($_options = array()) {
                 switch($this->getLogicalId()){
                         case 'Redemarrage':
-                                if (config::byKey('Code','freeCrystal')!=''){
-
+                                if (config::byKey('Code','freeCrystal')!=''){	
                                         $cmd = 'sudo /bin/bash ' . dirname(__FILE__) . '/../../ressources/rebootFreebox.sh';
-                                        $cmd .=" hd ". config::byKey('Code','freeCrystal');
+                                        $cmd .=" adsl ".config::byKey('Code','freeCrystal');
                                         $cmd .= ' >> ' . log::getPathToLog('freeCrystal') . ' 2>&1 &';
                                         exec($cmd);
-
+                                }
+                        break;
+			case 'RedemarragePlayer':
+                                if (config::byKey('Code','freeCrystal')!=''){
                                         $cmd = 'sudo /bin/bash ' . dirname(__FILE__) . '/../../ressources/rebootFreebox.sh';
                                         $cmd .=" adsl ".config::byKey('Code','freeCrystal');
                                         $cmd .= ' >> ' . log::getPathToLog('freeCrystal') . ' 2>&1 &';
