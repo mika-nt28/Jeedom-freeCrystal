@@ -561,7 +561,7 @@ class freeCrystal extends eqLogic {
 						while(true){
 							$ligne = trim($ligne);
 							$ligne = str_replace("\t", " ", $ligne);
-							$ligne = eregi_replace("[ ]+", " ", $ligne);
+							$ligne = str_replace("[ ]+", " ", $ligne);
 							log::add('freeCrystal', 'debug', $ligne);
 							if($ligne != ''){
 								$Informations=explode(' ',$ligne);
