@@ -1,0 +1,21 @@
+== Freebox Crystal
+
+=== Description
+Ce plugin permet de récupérer les informations de votre Freebox Crystal.
+Certains éléments sont rendus actifs par Jeedom (Redémarrage des Freebox, présence DHCP) mais nécessitent une installation supplémentaire sur votre serveur.
+
+'''
+=== Installation : Présence DHCP
+include::DHCP.asciidoc[]
+
+'''
+=== Installation : Redémarrage des freebox
+include::Redemarrage.asciidoc[]
+
+'''
+=== FAQ
+include::faq.asciidoc[]
+
+'''
+=== Changelog
+include::changelog.asciidoc[]
