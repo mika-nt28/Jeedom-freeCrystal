@@ -18,8 +18,8 @@ $eqLogics = eqLogic::byType('freeCrystal');
         </div>
     </div>
 	<div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
-        <legend>{{Mes informations Freebox}}
-        </legend>
+     		<legend>{{Mes informations Freebox}}</legend>
+		<input class="form-control" placeholder="{{Rechercher}}" style="margin-bottom:4px;" id="in_searchEqlogic" />
         <?php
         if (count($eqLogics) == 0) {
             echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun equipement n'a été créer.}} <br/>{{Veuillez D
