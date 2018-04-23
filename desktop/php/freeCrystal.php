@@ -21,24 +21,16 @@ $eqLogics = eqLogic::byType('freeCrystal');
      		<legend>{{Mes informations Freebox}}</legend>
 		<input class="form-control" placeholder="{{Rechercher}}" style="margin-bottom:4px;" id="in_searchEqlogic" />
         <?php
-        if (count($eqLogics) == 0) {
-            echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun equipement n'a été créer.}} <br/>{{Veuillez D
-			désactuiver puis re-activer le plugin pour la création automatique des équipement}}</span></center>";
-        } else {
-            ?>
-            <div class="eqLogicThumbnailContainer">
-                <?php
-                foreach ($eqLogics as $eqLogic) {
-                    echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
-                    echo "<center>";
-                    echo '<img src="plugins/freeCrystal/doc/images/freeCrystal_icon.png" height="105" width="95" />';
-                    echo "</center>";
-                    echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
-        <?php } ?>
+		foreach ($eqLogics as $eqLogic) {
+			$opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+			echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+			echo "<center>";
+			echo '<img src="plugins/freeCrystal/plugin_info/freeCrystal_icon.png" height="105" width="95" />';
+			echo "</center>";
+			echo '<span class="name" style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+			echo '</div>';
+		}
+       ?>
     </div>
     <div class="col-md-10 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
         <form class="form-horizontal">
