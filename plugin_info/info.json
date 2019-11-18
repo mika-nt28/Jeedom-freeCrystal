@@ -9,7 +9,5 @@
 	"hasOwnDeamon" : true,
 	"hasDependency" : true,
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
-	"issue" : "https://github.com/mika-nt28/Jeedom-freeCrystal/issues",
- 	"changelog" : "https://github.com/mika-nt28/Jeedom-freeCrystal/commits/master",
  	"documentation" : "https://mika-nt28.github.io/Jeedom-freeCrystal/"
 }
