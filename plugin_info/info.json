@@ -8,7 +8,7 @@
 	"category" : "multimedia",
 	"hasOwnDeamon" : true,
 	"hasDependency" : true,
-	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
- 	"documentation" : "https://mika-nt28.github.io/Jeedom-freeCrystal/",
-	"changelog" : "https://mika-nt28.github.io/Jeedom-freeCrystal/"
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
+ 	"documentation" : "https://mika-nt28.github.io/Documentations/freeCrystal/",
+	"changelog" : "https://mika-nt28.github.io/Documentations/freeCrystal/changelog"
 }
