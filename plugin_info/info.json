@@ -9,6 +9,6 @@
 	"hasOwnDeamon" : true,
 	"hasDependency" : true,
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
- 	"documentation" : "https://mika-nt28.github.io/Documentations/freeCrystal/",
-	"changelog" : "https://mika-nt28.github.io/Documentations/freeCrystal/changelog"
+ 	"documentation" : "https://mika-nt28.github.io/Documentations/freeCrystal/#language#/",
+	"changelog" : "https://mika-nt28.github.io/Documentations/freeCrystal/#language#/changelog"
 }
